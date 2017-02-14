@@ -1,4 +1,4 @@
-language: generic
+language: csharp
 
 addons:
   apt:
@@ -9,6 +9,12 @@ addons:
     - libssl-dev
     - libunwind8
     - zlib1g
+
+mono: none
+dotnet: 1.0.0-preview2-003121
+env:
+  - DOTNETCORE=1
+  - CLI_VERSION=latest
 
 matrix:
   include:
@@ -30,22 +36,22 @@ matrix:
 before_install:
   # Install OpenSSL
   - if test "$TRAVIS_OS_NAME" == "osx"; then
-      brew install openssl;
-      brew link --force openssl;
-      export DOTNET_SDK_URL="https://go.microsoft.com/fwlink/?LinkID=809128";
+  #    brew install openssl;
+  #    brew link --force openssl;
+  #    export DOTNET_SDK_URL="https://go.microsoft.com/fwlink/?LinkID=809128";
     else
-      export DOTNET_SDK_URL="https://go.microsoft.com/fwlink/?LinkID=809129";
+  #    export DOTNET_SDK_URL="https://go.microsoft.com/fwlink/?LinkID=809129";
     fi
 
-  - export DOTNET_INSTALL_DIR="$PWD/.dotnetcli"
+  #- export DOTNET_INSTALL_DIR="$PWD/.dotnetcli"
 
   # Install .NET CLI
-  - mkdir $DOTNET_INSTALL_DIR
-  - curl -L $DOTNET_SDK_URL -o dotnet_package
-  - tar -xvzf dotnet_package -C $DOTNET_INSTALL_DIR
+  #- mkdir $DOTNET_INSTALL_DIR
+  #- curl -L $DOTNET_SDK_URL -o dotnet_package
+  #- tar -xvzf dotnet_package -C $DOTNET_INSTALL_DIR
 
   # Add dotnet to PATH
-  - export PATH="$DOTNET_INSTALL_DIR:$PATH"
+  #- export PATH="$DOTNET_INSTALL_DIR:$PATH"
 
 install:
   # Display dotnet version info

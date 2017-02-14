@@ -33,6 +33,10 @@ install:
       sudo mkdir -p /usr/lib/mono/xbuild-frameworks/.NETFramework/v4.5.1;
     fi
 
+  - if test "$TRAVIS_OS_NAME" == "osx"; then
+      export DOTNET_REFERENCE_ASSEMBLIES_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/xbuild-frameworks/;
+    fi
+
   # Restore dependencies
   - dotnet restore
 

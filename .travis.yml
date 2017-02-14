@@ -30,9 +30,9 @@ env:
 
 install:
   # Workaround dotnet/cli#3636
-  #- if test "$TRAVIS_OS_NAME" == "linux"; then
-  #  fi
-  - sudo mkdir -p /usr/lib/mono/xbuild-frameworks/.NETFramework/v4.5.1
+  - if test "$TRAVIS_OS_NAME" == "linux"; then
+    sudo mkdir -p /usr/lib/mono/xbuild-frameworks/.NETFramework/v4.5.1
+    fi
 
   # Restore dependencies
   - dotnet restore

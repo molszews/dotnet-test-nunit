@@ -25,7 +25,7 @@ env:
     - DOTNET_CLI_TELEMETRY_OPTOUT=true
   matrix:
     - CONFIGURATION=Debug
-    - CONFIGURATION=Release
+#    - CONFIGURATION=Release
 
 install:
   # Workaround dotnet/cli#3636
